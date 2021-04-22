@@ -29,6 +29,12 @@ public class PersonService {
         return personRepository.save(person);
     }
 
+    public Person updatePerson(Person person) throws PersonNotFoundException{
+        checkIfExistsPersonByCpf(person.getCpf());
+        return personRepository.save(person);
+    }
+
+
     public String deleteByCpf(String cpf) throws PersonNotFoundException{
         checkIfExistsPersonByCpf(cpf);
         return "Person deleted with sucess";

@@ -3,6 +3,7 @@ package com.jonas.peopleapi.controller;
 import java.util.List;
 
 import com.jonas.peopleapi.entity.Person;
+import com.jonas.peopleapi.exception.PersonNotFoundException;
 import com.jonas.peopleapi.service.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class PersonController {
 
     @PutMapping("/")
     @ResponseStatus(HttpStatus.OK)
-    public Person updatePerson(Person person){
+    public Person updatePerson(Person person) throws PersonNotFoundException{
         return personService.updatePerson(person);
     }
 
